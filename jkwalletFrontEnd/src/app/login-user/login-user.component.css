@@ -1,0 +1,10 @@
+.container-fluid{
+    align-items: center;
+    margin-top: 5%;
+    max-width: 360px;
+}
+.container{
+    align-items: center;
+    margin-top: 20px;
+    max-width: 360px;
+}

@@ -1,0 +1,42 @@
+{{userForm.value|json}}
+<div class="container">
+    <h2 style="font-weight: bold" >Enter Details</h2>
+<form #userForm="ngForm">
+<div class="form-group" >
+
+<div >
+<label>Mobile Number</label>
+<input type="tel" #mobileNumber="ngModel" required name="mobileNumber" class="form-control" [(ngModel)]="mobileDetails.mobileNumber" maxlength="10" [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched">
+</div>
+
+<div  >
+    <label>Select Bank</label>
+    
+      <select  class="form-control"  #selectedBank="ngModel" name="selectedBank"  [(ngModel)]="mobileDetails.bank">
+        <option *ngFor="let selectedBank of bankList" [ngValue]="selectedBank" >{{selectedBank}}</option>
+      </select>
+    
+  </div>
+
+  <div >
+    <label> Amount</label>
+    <input type="number" #amount="ngModel" required name="amount" class="form-control" [(ngModel)]="mobileDetails.amount" maxlength="10" [class.is-invalid]="amount.invalid && amount.touched">
+    </div>
+
+
+<div style="width:120px">
+    <label>PIN</label>
+    <input class="form-control " required name="pin" #pin="ngModel" type="password" maxlength="4" [(ngModel)]="mobileDetails.pin" [class.is-invalid]="pin.invalid && pin.touched">
+
+</div>
+
+
+</div>
+
+<div >
+<button [disabled]="userForm.form.invalid"  class="btn btn-success" type="submit" (click)=onAddMoneyByMobile()>Submit</button>
+</div>
+
+</form>
+
+</div>

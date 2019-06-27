@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    
+  <form #userForm="ngForm">
+  <div class="form-group">
+
+    <div  >
+      <label>Select Bank</label>
+      
+        <select  class="form-control"  #bankName="ngModel" name="bankName"  [(ngModel)]="withdraw.bankName">
+          <option *ngFor="let bankName of bankList" [ngValue]="bankName" >{{bankName}}</option>
+        </select>
+      
+    </div>
+        <div>
+            <label>Amount To Withdraw</label>
+            <input type="number"  required name="amountToWithdraw" #amountToWithdraw="ngModel"class="form-control" [(ngModel)]="withdraw.amountToWithdraw" [class.is-invalid]="amountToWithdraw.invalid && amountToWithdraw.touched"  >
+          </div>
+
+
+</div>
+</form>
+<div class="col-sm-3">
+    <button [disabled]="userForm.form.invalid" class="btn btn-success" (click)=withdrawOnClick() type="submit">Submit</button>
+    </div>
+</div>  

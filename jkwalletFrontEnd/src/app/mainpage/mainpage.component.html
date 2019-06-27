@@ -1,0 +1,68 @@
+<h1>Wallet Balance: {{walletBalance}}</h1>
+<div class="container-fluid">
+
+    
+<div class="inline" style="margin-top: 2%">
+
+<button class="btn btn-success" style="margin-left: 10%" (click)="onAddMoney()">Add Money</button>
+
+
+<button class="btn btn-primary" style="margin-left: 10%" (click)="onWithdrawMoney()">Withdraw Money</button>
+
+
+<button class="btn btn-success" style="margin-left: 10%" (click)="onPayMoney()">Pay/Send Money</button>
+
+</div>
+
+
+<div *ngIf="addMoney">
+
+  <div style="margin-top: 50px">
+  <button class="btn btn-primary" (click)=addMoneyUsingCreditCard()>Credit/Debit Card</button>
+  </div>
+
+  <div style="margin-top: 50px">
+      <button class="btn btn-primary" (click)="addMoneyUsingMobileNumber()">Mobile Number</button>
+  </div>
+  <div *ngIf="addUsingCreditCardBoolean">
+      <app-add-money-by-card></app-add-money-by-card>
+  </div>
+  <div *ngIf="addUsingMobileNumberBoolean">
+        <app-add-money-by-mobile></app-add-money-by-mobile>
+  </div>
+
+</div>
+
+
+
+<div *ngIf="withdrawMoney">
+
+    <div style="margin-top: 50px">
+        <button class="btn btn-primary"(click)="withdrawMoneyMethod()">Withdraw Money</button>
+    </div>
+
+
+</div>
+
+
+<div *ngIf="payMoney">
+
+    <div style="margin-top: 50px">
+        <button class="btn btn-primary" (click)=payUsingMobileNumber()>By Mobile Number</button>
+    </div>
+
+    <div style="margin-top: 50px">
+        <button class="btn btn-primary" (click)=payUsingAccountNumber()>By Account Number</button>
+    </div>
+    <div *ngIf="payUsingMobileNumberBoolean">
+        <app-pay-money-using-mobile></app-pay-money-using-mobile>
+    </div>
+    <div *ngIf="payUsingAccountNumberBoolean">
+        <app-pay-money-using-account></app-pay-money-using-account>
+    </div>
+    
+
+</div>
+
+
+</div>

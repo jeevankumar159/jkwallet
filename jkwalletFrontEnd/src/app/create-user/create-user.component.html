@@ -1,0 +1,50 @@
+<div class="container-fluid" >
+  <h3>Create User</h3>
+ 
+<form #userForm="ngForm">
+<div class="form-group ">
+
+<div >
+  <label>Name</label>
+  <input type="text"  #userName="ngModel" class="form-control" pattern="[A-Za-z ]{2,40}" name="userName" required [(ngModel)]=user.userName [class.is-invalid]="userName.invalid && userName.touched">
+</div> 
+
+<small *ngIf="userName.invalid && userName.touched" class="text-danger">Name Required</small>
+
+
+
+<div >
+  <label>Email</label>
+  <input type="email" class="form-control" #email="ngModel" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" name="email" required [(ngModel)]="user.email" [class.is-invalid]="email.invalid && email.touched">
+</div> 
+<small *ngIf="email.invalid && email.touched" class="text-danger">Email Required</small>
+
+
+
+
+<div >
+  <label>Mobile Number</label>
+  <input type="tel" #mobileNumber="ngModel" pattern="[0-9]{10}" required name="mobileNumber" class="form-control" [(ngModel)]="user.mobileNumber" maxlength="10" [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched">
+</div>
+<small *ngIf="mobileNumber.invalid && mobileNumber.touched" class="text-danger">Required</small>
+
+
+
+<div >
+  <label>Password</label>
+  <input type="password" #password="ngModel" name="password" required  class="form-control" [(ngModel)]="user.password" [class.is-invalid]="password.invalid && password.touched">
+</div>
+<small *ngIf="password.invalid && password.touched" class="text-danger">Required</small>
+
+
+
+<div >
+  <label>Re-Enter Password</label>
+  <input type="password"  #rePassword="ngModel" name="rePassword" required class="form-control" [(ngModel)]="user.rePassword" [class.is-invalid]="rePassword.invalid && rePassword.touched">
+</div>
+<!-- <small *ngIf="rePassword.invalid && rePassword.touched" class="text-danger">Required</small> -->
+<small *ngIf="!passwordMatch" class="text-danger">Password doesn't Match</small>
+</div>
+<button [disabled]="userForm.form.invalid" class="btn btn-success" type="submit"(click)=createUserLogin()>Submit</button>
+</form>  
+</div>

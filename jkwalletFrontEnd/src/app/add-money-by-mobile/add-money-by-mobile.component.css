@@ -1,0 +1,9 @@
+.container {        
+    
+    align-items: center;
+    margin-top: 5%;
+    max-width: 240px;
+}
+.button{
+    margin: auto;
+}

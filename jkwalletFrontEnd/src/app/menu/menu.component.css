@@ -1,0 +1,18 @@
+.navbar-custom {
+    
+    
+    background-color:rgb(91, 44, 111  );
+}
+.makebold{
+    font-weight: bold;
+    color: #FFFFFF;
+}
+.navbar .dropdown-menu {
+    background-color: rgb(91, 44, 111  );
+  }
+
+.navbar .dropdown.show a { 
+    background-color: rgb(91, 44, 111  );
+  }
+
+  ul.nav a:hover { color: rgb(192, 57, 43 ) !important; }

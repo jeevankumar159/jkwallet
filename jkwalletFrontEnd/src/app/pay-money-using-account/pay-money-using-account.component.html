@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <h2 style="font-weight: bold" >Enter Receiver Details</h2>
+  <form #userForm="ngForm">
+  <div class="form-group">
+  
+  <div >
+  <label>Account Number</label>
+  <input type="number" #accountNumber="ngModel" required name="accountNumber" class="form-control" [(ngModel)]="accountDetails.accountNumber"  [class.is-invalid]="accountNumber.invalid && accountNumber.touched">
+  </div>
+
+
+
+
+  <div  >
+    <label>Select Bank</label>
+    
+      <select  class="form-control"  #bankName="ngModel" name="bankName"  [(ngModel)]="accountDetails.bankName">
+        <option *ngFor="let bankName of bankList" [ngValue]="bankName" >{{bankName}}</option>
+      </select>
+    
+  </div>
+
+
+    <div>
+      <label>Amount To Send</label>
+      <input type="number" #amountToPay="ngModel" required name="amountToPay" class="form-control" [(ngModel)]="accountDetails.amountToPay" [class.is-invalid]="amountToPay.invalid && amountToPay.touched">
+    </div>
+  
+    
+
+ </div>
+ <div class="col-sm-3">
+  <button [disabled]="userForm.form.invalid" class="btn btn-success" type="submit" (click)=payUsingAccountNumber()>Submit</button>
+  </div>
+ </form> 
+ </div>

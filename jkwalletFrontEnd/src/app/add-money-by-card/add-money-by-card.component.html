@@ -1,0 +1,51 @@
+<div  class="container-fluid">
+    <h2 style="font-weight: bold" >Enter Card Details</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Card Details</h3>
+  </div>
+
+  <div class="panel-body">
+    <form #userForm="ngForm" (ngSubmit)="sendCardDetails()">
+      <div class="form-group">
+        <div >
+          <label>Card Number</label>
+          <input class="form-control" type="text" #cardNumber="ngModel" name="cardNumber" required [(ngModel)]="cardDetails.cardNumber" [class.is-invalid]="cardNumber.invalid && cardNumber.touched" placeholder="Valid Card Number">
+        </div>
+
+       
+          <div  >
+               <label >Expiry Date</label>
+               <input type="number" maxlength="2" style="width: 80px" class="form-control "  name="expiryMonth" #expiryMonth="ngModel" required  [(ngModel)]="cardDetails.expiryMonth"[class.is-invalid]="expiryMonth.invalid && expiryMonth.touched"min="1" max="12" placeholder="MM"> 
+               <input type="number" maxlength="2" style="width: 80px" class="form-control " name="expiryYear" #expiryYear="ngModel" required  [(ngModel)]="cardDetails.expiryYear"[class.is-invalid]="expiryYear.invalid && expiryYear.touched"min="1" placeholder="YY">
+   
+          </div>
+       
+        <div >
+          <label>CVV</label>
+          <input type="number" style="width: 80px" maxlength="3" min=1 class="form-control" name="cvv" #cvv="ngModel" required [(ngModel)]="cardDetails.cvv" [class.is-invalid]="cvv.invalid && cvv.touched" placeholder="CVV">
+        </div>
+        
+        <div>
+          <label> Enter Money to Add</label>
+        
+        <input type="number" required name="amountToAdd" class="form-control col-sm-2" #amountToAdd="ngModel" [(ngModel)]="cardDetails.amountToAdd"  [class.is-invalid]="amountToAdd.invalid && amountToAdd.touched" min="1">
+        
+      </div>
+        
+
+      </div>
+      
+
+    </form>
+   
+    
+  
+    </div>
+    <div class="container">
+      <button [disabled]="userForm.form.invalid" class="btn btn-success" (click)=addMoneyByCard() type="submit">Add Money</button>
+      </div>
+</div>
+    
+  
+</div>

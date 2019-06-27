@@ -1,0 +1,49 @@
+
+<nav class="navbar  navbar-custom">
+<div class="container-fluid">
+<div class="navbar-header" >
+  <a  class="navbar-brand makebold" routerLink="mainPage" >JKWallet</a>
+</div>
+
+
+
+
+<ul class="nav navbar-nav ">
+
+    <li><a routerLink="mainPage" class="nav-link makebold">Home</a></li>
+
+
+  <li class="dropdown"><a class="dropdown-toggle makebold" data-toggle="dropdown">Add Money<span class="caret"></span> </a>
+  
+  <ul class="dropdown-menu ">
+    <li><a class="makebold"routerLink="addMoneyByMobile">By Mobile</a></li>
+    <li><a class="makebold"routerLink="addMoneyByCard" >By Card</a></li>
+  </ul>
+  </li>
+
+
+
+  <li class="dropdown"><a class="dropdown-toggle makebold " data-toggle="dropdown">Pay Money<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li><a class="makebold"routerLink="payMoneyByAccount">Using A/C Number</a></li>
+        <li><a class="makebold"routerLink="payMoneyByMobile">Using Mobile Number</a></li>
+      </ul>
+  </li>
+
+
+
+  <li><a routerLink="withdraw" class="nav-link makebold">WithDraw</a></li>
+</ul>
+
+
+
+
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a *ngIf="!loginStatus.isUserLoggedIn()"  class="nav-link makebold" routerLink="login">Login</a></li>
+    <li><a *ngIf="loginStatus.isUserLoggedIn()" class="nav-link makebold" (click)=onLogout() routerLink="login">Logout</a></li>
+</ul>
+
+</div>
+</nav>
+
